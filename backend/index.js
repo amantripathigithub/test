@@ -14,6 +14,15 @@ app.set("view engine", "ejs");
 //const User = require('./model/patient');
 // for hotel schema
 //const Hotel = require('./model/contributor');
+const jsonParser = bodyParser.json();
+app.use(jsonParser);
+// for twilio
+//app.use(jsonParser);
+const twilioRouter = require('./src/routes/twilio-sms');
+app.use('/twilio-sms',twilioRouter);
+
+
+
 
 
 app.get("/", (req, res) => {
