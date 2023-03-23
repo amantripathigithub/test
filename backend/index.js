@@ -31,6 +31,12 @@ app.get("/signupcon", (req, res) => {
     app.use(express.static("../frontend"));
     res.render(path.join(__dirname, "../frontend", "/contributor-signup"));
 });
+
+app.get("/cat-contributor", (req, res) => {
+    app.use(express.static("../frontend"));
+    res.render(path.join(__dirname, "../frontend", "/contributor-category"));
+});
+
 app.listen(3000, () => {
     console.log("Server listening on port " + 3000);
 });

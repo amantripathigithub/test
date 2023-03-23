@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contributor Category</title>
+    <link rel="stylesheet" href="style/style-main.css">
+
+</head>
+
+<body>
+
+    <style>
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid #eee;
+            padding: 10px;
+            text-align: center;
+        }
+        .cat-container {
+    width: 40vw;
+    height: 30vw;
+    border: 1px solid;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+        .pill-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .pill-container input[type="checkbox"] {
+            opacity: 0;
+            position: fixed;
+            width: 0;
+        }
+
+        .pill-container input[type="checkbox"]:checked+label {
+            background: blue;
+            color: white;
+        }
+
+        .category-selector {
+            padding: 10px 14px;
+            border: 1px solid #eee;
+            border-radius: 20px;
+            margin: 0 10px;
+        }
+    </style>
+    <div class="container">
+        <div class="cat-container">
+            <h1 class="title">Help us Make you categoriged</h1>
+            <div class="pill-container">
+                <input type="checkbox" id="option-a" name="selector" value="a">
+                <label class="category-selector option-a" for="option-a"> Option A </label>
+
+                <input type="checkbox" id="option-b" name="selector" value="b">
+                <label class="category-selector" for="option-b">Option B</label>
+
+                <input type="checkbox" id="option-c" name="selector" value="c">
+                <label class="category-selector" for="option-c">Option C</label>
+
+                <input type="checkbox" id="option-d" name="selector" value="d">
+                <label class="category-selector" for="option-d">Option D</label>
+
+                <input type="checkbox" id="option-e" name="selector" value="E">
+                <label class="category-selector" for="option-e">Option E</label>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
