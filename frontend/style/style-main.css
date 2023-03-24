@@ -6,14 +6,12 @@
 
 body {
     background: #f6f5f7;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    font-family: 'Montserrat', sans-serif;
-    height: 100vh;
-    margin: -20px 0 50px;
-    overflow: hidden;
+    font-family: system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Noto Sans,Roboto,Ubuntu,Helvetica,sans-serif, 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.675;
+    text-transform: none;
+    overflow-x: hidden;
 }
 
 p {
@@ -22,14 +20,16 @@ p {
     line-height: 20px;
     letter-spacing: 0.5px;
     margin: 20px 0 30px;
-    margin-bottom: 1.5em
+    margin-bottom: 1.5em;
+    text-transform: capitalize;
 }
 
 h1,h2,h3,h4,h5,h6 {
     font-family: inherit;
     font-size: 100%;
     font-style: inherit;
-    font-weight: 500
+    font-weight: 500;
+    text-transform: capitalize;
 }
 
 pre {
@@ -107,21 +107,21 @@ h1 {
     font-size: 36px;
     margin-bottom: 10px;
     line-height: 1.2em;
-    text-transform: none
+
 }
 
 h2 {
     font-size: 28px;
     margin-bottom: 10px;
     line-height: 1.2em;
-    text-transform: none
+
 }
 
 h3 {
     font-size: 24px;
     margin-bottom: 10px;
     line-height: 1.2em;
-    text-transform: none
+
 }
 
 h4 {
@@ -149,7 +149,9 @@ ol {
 }
 
 li {
-    list-style-type: none
+    list-style-type: none;
+    text-transform: capitalize;
+
 }
 
 li>ul,li>ol {
@@ -158,7 +160,8 @@ li>ul,li>ol {
 }
 
 span {
-    font-size: 12px;
+    font-size: 14px;
+    text-transform: capitalize;
 }
 
 a {

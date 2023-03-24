@@ -103,7 +103,8 @@
             max-width: 100%;
             justify-content: space-between;
             flex-wrap: nowrap;
-            align-content: center;
+            align-items: center;
+            
             /* padding: 0 2%; */
         }
 
@@ -127,7 +128,7 @@
             content: "";
             position: absolute;
             bottom: 4px;
-            right: 28px;
+            right: 0px;
             width: 10px;
             height: 10px;
             border-radius: 100%;
@@ -136,10 +137,8 @@
         }
 
         .problem-feed {
-            display: flex;
-            width: 100%;
-            flex-wrap: wrap;
-            justify-content: flex-start;
+            border-top: 1px solid;
+    padding: 20px;
         }
 
         .problem {
@@ -153,16 +152,18 @@
             font-weight: 600;
         }
 
-        span.problem-admin {
-            float: left;
-            width: 50%;
-        }
+       
+        .info {
+    display: flex;
+    justify-content: space-between;
+    /* flex-wrap: nowrap; */
+}
 
-        span.issolved {
-            width: 50%;
-            float: right;
-            text-align: right;
-        }
+        .btn {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px 0 0 0;
+}
     </style>
     <div class="main-container">
         <div class="container">
@@ -201,7 +202,8 @@
                         <input type="hidden" value=<%= posts.name%> name="blank"/>
                     <div class="problem">
                         <h2 class="problem-title"><%= posts.problem%></h2>
-                        <span class="problem-admin"><%= posts.name%></span>
+                        <div class="info">
+                            <span class="problem-admin"><%= posts.name%></span>
                         <% if(posts.solved === 1) { %>
                         <span class="issolved">solved</span>
                         <% } %>
@@ -210,7 +212,10 @@
                             <span class="issolved">unsolved</span>
                             <% } %>
     
-                        <input type="submit" class="button" value="Solution" >
+                        </div>
+                        <div class="btn">
+                            <input type="submit" class="button" value="Solution" >
+                        </div>
     
                     </div>
                 </form>
