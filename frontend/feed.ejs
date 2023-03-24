@@ -6,13 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feed</title>
-	<script src="https://kit.fontawesome.com/ad18072ca1.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/ad18072ca1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style/style-main.css">
 </head>
 
 <body>
     <style>
-
         .left-sidebar {
             width: 20%;
             float: left;
@@ -57,11 +56,9 @@
 
         .main {
             width: 80%;
-            background: #2222;
             position: absolute;
             top: 0;
             left: 20%;
-            height: 100vh;
             padding: 10px;
         }
 
@@ -133,26 +130,58 @@
 
         .problem {
             border: 1px solid #eee;
-            padding: 20px;
+            padding: 10px;
             border-radius: 20px;
             margin: 10px;
+            width: 60%;
         }
 
         h2.problem-title {
             font-weight: 600;
+            font-size: 22px;
         }
 
 
         .info {
             display: flex;
-            justify-content: space-between;
-            /* flex-wrap: nowrap; */
+            flex-direction: row;
+            align-items: center;
         }
 
         .btn {
             display: flex;
             justify-content: flex-end;
-            margin: 20px 0 0 0;
+            margin: 4px 0 0 0;
+        }
+
+        input.button {
+            padding: 6px 12px;
+        }
+
+        .verifyed-ans {
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid #eee;
+            padding: 5px 10px;
+            border-radius: 20px;
+            background: #55ba6d;
+            color: #000;
+            margin: 0 0 0 20px;
+        }
+
+        .un-verifyed-ans {
+            font-size: 12px;
+            font-weight: 600;
+            border: 1px solid #eee;
+            padding: 5px 10px;
+            border-radius: 20px;
+            margin: 0 0 0 20px;
+            color: #FF4B2B;
+        }
+
+        .solution-feed {
+            width: 80%;
+            margin: 0 auto;
         }
     </style>
     <div class="main-container">
@@ -189,7 +218,7 @@
                         <% posts.forEach(function(posts){ %>
 
                             <form action="/solution" method="post">
-                                <input type="hidden" value="<%=posts.solutions%>" name="blank"/>
+                                <input type="hidden" value="<%=posts.solutions%>" name="blank" />
                                 <div class="problem">
                                     <h2 class="problem-title">
                                         <%= posts.problem%>
@@ -199,11 +228,18 @@
                                             <%= posts.name%>
                                         </span>
                                         <% if(posts.solved===1) { %>
-                                            <i class="fa-solid fa-file-check"></i> <span class="issolved">solved</span>
+                                            <div class="verifyed-ans">
+                                                <i class="fa-solid fa-file-check"></i> <span
+                                                    class="issolved">solved</span>
+                                            </div>
+
                                             <% } %>
 
                                                 <% if(posts.solved===0) { %>
-                                                    <i class="fa-solid fa-x"></i> <span class="issolved">unsolved</span>
+                                                    <div class="un-verifyed-ans">
+                                                        <i class="fa-solid fa-x"></i> <span
+                                                            class="issolved">unsolved</span>
+                                                    </div>
                                                     <% } %>
 
                                     </div>
