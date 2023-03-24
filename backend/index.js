@@ -228,6 +228,7 @@ app.post("/feed",async function (req, res) {
 
 
 const problem = req.body.blank;
+const problem2 = req.body.blank2;
 
 console.log(req.body);
 
@@ -240,7 +241,7 @@ const posts = await Post.find({ptype:problem});
 
 
     app.use(express.static("../frontend"));
-    res.render(path.join(__dirname, "../frontend", "/feed"),{posts:posts});
+    res.render(path.join(__dirname, "../frontend", "/feed"),{posts:posts,problem:problem2});
 });
 
 
@@ -254,6 +255,7 @@ app.post("/solution", (req, res) => {
     let arr = sol.split('@,');
     console.log(arr);
     
+
         //console.log(req.body);
     
         app.use(express.static("../frontend"));
