@@ -18,19 +18,19 @@
                     <form action="/feed" method="post">
                         <input type="hidden" value="" name="blank"/>
                         <div class="question">
-                            <input type="radio" id="question-1" name="question" value="">
+                            <input type="radio" id="question-1" name="question" value="I've been feeling depressed">
                               <label for="question-1">I've been feeling depressed</label><br>
                         </div>
                         <div class="question">
-                            <input type="radio" id="question-2" name="question" value="">
+                            <input type="radio" id="question-2" name="question" value="I feel anxious or overwhelmed">
                               <label for="question-2">I feel anxious or overwhelmed</label><br>
                         </div>
                         <div class="question">
-                            <input type="radio" id="question-3" name="question" value="">
+                            <input type="radio" id="question-3" name="question" value="My mood is interfering with my job/school performance">
                               <label for="question-3">My mood is interfering with my job/school performance</label><br>
                         </div>
                         <div class="question">
-                            <input type="radio" id="question-4" name="question" value="">
+                            <input type="radio" id="question-4" name="question" value="I struggle with building or maintaining relationships">
                               <label for="question-4">I struggle with building or maintaining relationships</label><br>
                         </div>
                         <!-- <div class="question">
@@ -103,7 +103,8 @@
      let val="";
      for(let i=0;i<checkbox.length;i++){
         if(checkbox[i].checked===true)
-        document.getElementById("blank").value=val;
+        document.getElementsByName("blank")[0].value=checkbox[i].value;
+        //console.log(document.getElementsByName("blank")[0].value);
      }
      
 

@@ -10,7 +10,10 @@ let post = new Schema({
     name: {
       type: String 
     },
-   
+    problem : {
+        type: String 
+      },
+     
     
     solved :{
       type: Number
