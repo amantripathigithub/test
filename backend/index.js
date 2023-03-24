@@ -227,6 +227,9 @@ app.post("/feed", (req, res) => {
 
 const problem = req.body.blank;
 
+//console.log(req.body);
+
+
 
     
 
@@ -234,6 +237,20 @@ const problem = req.body.blank;
     res.render(path.join(__dirname, "../frontend", "/feed"),{problem:problem});
 });
 
+
+app.post("/solution", (req, res) => {
+
+
+    const problem = req.body.blank;
+    
+    
+        //console.log(req.body);
+    
+        app.use(express.static("../frontend"));
+        res.render(path.join(__dirname, "../frontend", "/solution"),{problem:problem});
+    });
+    
+    
 
 app.post("/contributor-home",function(req,res){
     const email = req.body.email;
