@@ -126,6 +126,7 @@
         .problem-feed {
             border-top: 1px solid;
             padding: 20px;
+            width: 70%;
         }
 
         .problem {
@@ -133,7 +134,6 @@
             padding: 10px;
             border-radius: 20px;
             margin: 10px;
-            width: 60%;
         }
 
         h2.problem-title {
@@ -183,6 +183,22 @@
             width: 80%;
             margin: 0 auto;
         }
+        .feed-container {
+    display: flex;
+
+}
+
+.post-form {
+    float: right;
+    padding: 20px;
+    width: 30%;
+    text-align: center;
+    height: 30vh;
+    background: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
     </style>
     <div class="main-container">
         <div class="container">
@@ -213,46 +229,64 @@
                         </div>
                     </div>
                 </div>
-                <div class="problem-feed">
-                    <% if(posts!=null) { %>
-                        <% posts.forEach(function(posts){ %>
-
-                            <form action="/solution" method="post">
-                                <input type="hidden" value="<%=posts.solutions%>," name="blank"/>
-                                <input type="hidden" value="<%=posts.problem%>," name="blank2"/>
-                                <div class="problem">
-                                    <h2 class="problem-title">
-                                        <%= posts.problem%>
-                                    </h2>
-                                    <div class="info">
-                                        <span class="problem-admin">
-                                            <%= posts.name%>
-                                        </span>
-                                        <% if(posts.solved===1) { %>
-                                            <div class="verifyed-ans">
-                                                <i class="fa-solid fa-file-check"></i> <span
-                                                    class="issolved">solved</span>
-                                            </div>
-
-                                            <% } %>
-
-                                                <% if(posts.solved===0) { %>
-                                                    <div class="un-verifyed-ans">
-                                                        <i class="fa-solid fa-x"></i> <span
-                                                            class="issolved">unsolved</span>
-                                                    </div>
-                                                    <% } %>
-
+                <div class="feed-container">
+                    <div class="problem-feed">
+                        <% if(posts!=null) { %>
+                            <% posts.forEach(function(posts){ %>
+    
+                                <form action="/solution" method="post">
+                                    <input type="hidden" value="<%=posts.solutions%>," name="blank"/>
+                                    <input type="hidden" value="<%=posts.problem%>," name="blank2"/>
+                                    <div class="problem">
+                                        <h2 class="problem-title">
+                                            <%= posts.problem%>
+                                        </h2>
+                                        <div class="info">
+                                            <span class="problem-admin">
+                                                <%= posts.name%>
+                                            </span>
+                                            <% if(posts.solved===1) { %>
+                                                <div class="verifyed-ans">
+                                                    <i class="fa-solid fa-file-check"></i> <span
+                                                        class="issolved">solved</span>
+                                                </div>
+    
+                                                <% } %>
+    
+                                                    <% if(posts.solved===0) { %>
+                                                        <div class="un-verifyed-ans">
+                                                            <i class="fa-solid fa-x"></i> <span
+                                                                class="issolved">unsolved</span>
+                                                        </div>
+                                                        <% } %>
+    
+                                        </div>
+                                        <div class="btn">
+                                            <input type="submit" class="button" value="Solution">
+                                        </div>
+    
                                     </div>
-                                    <div class="btn">
-                                        <input type="submit" class="button" value="Solution">
-                                    </div>
-
+                                </form>
+                                <% }) %>
+                                    <% } %>
+    
+                    </div>
+                    <div class="post-form">
+                        <div class="post-form-container">
+                            <form action="">
+                                <div class="problem-category">
+                                    <input type="text" value="Category dalo" class="problem-cat" name="problem-category">
+                                </div>
+                                <div class="problem-container">
+                                    <textarea class="problem-write" name="problem"rows="4" cols="25" ></textarea>
+                                
+                                </div>
+                                <div class="post-btn">
+                                    <input type="submit" class="button" value="Post Your Problem">
                                 </div>
                             </form>
-                            <% }) %>
-                                <% } %>
-
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
