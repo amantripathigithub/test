@@ -16,21 +16,145 @@ body {
     overflow: hidden;
 }
 
-h1 {
-    font-weight: bold;
-    margin: 0;
-}
-
-h2 {
-    text-align: center;
-}
-
 p {
     font-size: 14px;
     font-weight: 100;
     line-height: 20px;
     letter-spacing: 0.5px;
     margin: 20px 0 30px;
+    margin-bottom: 1.5em
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: inherit;
+    font-size: 100%;
+    font-style: inherit;
+    font-weight: 500
+}
+
+pre {
+    background: rgba(0,0,0,.05);
+    font-family: inherit;
+    font-size: inherit;
+    line-height: normal;
+    margin-bottom: 1.5em;
+    padding: 20px;
+    overflow: auto;
+    max-width: 100%
+}
+
+blockquote {
+    border-left: 5px solid rgba(0,0,0,.05);
+    padding: 20px;
+    font-size: 1.2em;
+    font-style: italic;
+    margin: 0 0 1.5em;
+    position: relative
+}
+
+blockquote p:last-child {
+    margin: 0
+}
+
+table,th,td {
+    border: 1px solid rgba(0,0,0,.1)
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-width: 1px 0 0 1px;
+    margin: 0 0 1.5em;
+    width: 100%
+}
+
+th,td {
+    padding: 8px
+}
+
+th {
+    border-width: 0 1px 1px 0
+}
+
+td {
+    border-width: 0 1px 1px 0
+}
+
+hr {
+    background-color: rgba(0,0,0,.1);
+    border: 0;
+    height: 1px;
+    margin-bottom: 40px;
+    margin-top: 40px
+}
+
+code,pre {
+    font-size: 14px
+}
+
+fieldset {
+    padding: 0;
+    border: 0;
+    min-width: inherit
+}
+
+fieldset legend {
+    padding: 0;
+    margin-bottom: 1.5em
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    line-height: 1.2em;
+    text-transform: none
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    line-height: 1.2em;
+    text-transform: none
+}
+
+h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    line-height: 1.2em;
+    text-transform: none
+}
+
+h4 {
+    font-size: 20px
+}
+
+h5 {
+    font-size: 18px
+}
+
+h4,h5,h6 {
+    margin-bottom: 20px
+}
+
+ul,ol {
+    margin: 0 0 1.5em 2em
+}
+
+ul {
+    list-style: disc
+}
+
+ol {
+    list-style: decimal
+}
+
+li {
+    list-style-type: none
+}
+
+li>ul,li>ol {
+    margin-bottom: 0;
+    margin-left: 1.5em
 }
 
 span {
@@ -69,4 +193,8 @@ button:hover{
     border: 1px solid #FF4B2B;
     background: #ffffff;
     color: #252525;
+}
+img {
+    height: auto;
+    max-width: 100%;
 }
