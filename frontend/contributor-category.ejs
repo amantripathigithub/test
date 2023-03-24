@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contributor Category</title>
-    <link type="text/css" rel="stylesheet" href="style/style-main.css">
+    <link rel="stylesheet" href="style/style-main.css">
+
 </head>
 
 <body>
@@ -54,6 +55,10 @@
             margin: 0 10px;
         }
     </style>
+     <form action="/contributor-home" method="post">
+<p name="a" id="aa">aman</p>
+<input type="text" id="attlist1" name="attlist" value="amana" />
+
     <div class="container">
         <div class="cat-container">
             <h1 class="title">Help us Make you categorised</h1>
@@ -71,12 +76,29 @@
                 <label class="category-selector" for="option-4">Option D</label>
 
                 <input type="checkbox" id="option-5" name="selector" value="e">
-                <label class="category-selector" for="option-5">Option El</label>
+                <label class="category-selector" for="option-e">Option El</label>
             </div>
-            <button clas="contributor-next-btn" onclick="next()">Next</button>
+            <button clas="contributor-next-btn" onclick="next()">ADD</button>
+            
         </div>
+       
+            <!-- <input class="activex home" type="submit" value="Home" name="submit" /> -->
+    
+          </form>
     </div>
-   
+   <script>
+    function next(){
+     let checkbox=document.getElementsByName("selector");
+     let val="";
+     for(let i=0;i<checkbox.length;i++){
+        if(checkbox[i].checked===true)
+        val=val + checkbox[i].value+" ";
+     }
+     document.getElementById("attlist1").value=val;
+
+    // console.log(val); 
+    }
+   </script>
 </body>
 
 </html>
