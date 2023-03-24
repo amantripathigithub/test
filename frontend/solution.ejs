@@ -164,12 +164,20 @@
 
         li.solution {
             padding: 20px;
-            margin: 0 0 10px 0;
+            margin: 0 0 20px 0;
             border: 1px solid #eee;
             border-radius: 10px;
+            background: #cff4d2;
+            position: relative;
+            box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
         }
-        li:last-child{
-            display: none;
+
+        li.solution:before {
+            content: "\f0a9";
+            position: absolute;
+            font-family: 'FontAwesome';
+            left: -24px;
+            font-size: 22px;
         }
     </style>
     <div class="main-container">
@@ -192,7 +200,9 @@
             <div class="main">
                 <div class="header">
                     <div class="greeting">
-                        <h2 class="welcome-text"><%= problem %></h2>
+                        <h2 class="welcome-text">
+                            <%= problem %>
+                        </h2>
                         <p class="welcome">hello user.name and welcome to project.nanme</p>
                     </div>
                     <div class="my-account">
@@ -202,8 +212,11 @@
                     </div>
                 </div>
                 <div class="solution-feed">
+                    <h3 class="solution-title">Solutions</h3>
                     <ul class="solutions-feed">
+
                         <% sol.forEach(function(sol){ %>
+
 
                             <li class="solution">
                                 <%= sol%>
