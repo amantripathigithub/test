@@ -229,11 +229,22 @@
 
 
                 </div>
+               
+                <form action="/solved" method="post">
+                    <input type="hidden" value="<%= problem %>" name="blank2" />
+                <div class="btn">
+                   
+                    <input type="submit" class="button" onclick="solved()" value="Solved">
+                </div>
+            </form>
             </div>
         </div>
     </div>
     <script>
+function solved(){
+    console.log(document.getElementsByName("blank2")[0].value);
 
+}
 
     </script>
 

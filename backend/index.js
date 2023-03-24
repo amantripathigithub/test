@@ -382,6 +382,10 @@ app.post("/solution", (req, res) => {
 
     const sol = req.body.blank;
     const problem2 = req.body.blank2;
+   
+
+
+
     let arr = sol.split('@,');
     arr.pop();
     //console.log(arr);
@@ -394,6 +398,19 @@ app.post("/solution", (req, res) => {
     });
     
     
+
+
+    app.post("/solved", (req, res) => {
+
+        const problem=req.body.blank2;
+        console.log(problem);
+        
+           
+        });
+        
+        
+
+
 
 app.post("/contributor-home",function(req,res){
     const email = req.body.email;
