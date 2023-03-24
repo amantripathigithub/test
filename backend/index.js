@@ -250,25 +250,51 @@ app.get("/user-signup", (req, res) => {
 
 app.post("/loginuser",async function (req, res) {
 
-    
+    //start
+    try {
+        // check if the user exists
+       
+        const patient = await Patient.findOne({ email: req.body.email });
+       
+        if (patient) {
+            //check if password matches
+            
+            const result = req.body.password === patient.password;
+            // for token    ---->>>>
+           // const token = await user.generateAuthToken();
+            //console.log("the token part" + token);
+            // res.cookie("jwt", token, {
+            //     expires: new Date(Date.now() + 10000000),
+            //     httpOnly: true
+            //     //secure:true
+            // });
+
+            // yaha tak ---->>>>>>
+
+            if (result) {
+                //changes are here
+                const posts = await Post.find({email:patient.email});
+                    app.use(express.static("../frontend"));
+                  return  res.render(path.join(__dirname, "../frontend", "/user-dashboard"),{patient:patient,posts:posts});
+            } else {
+                // if password not match
+                return res.json({ error: "invalid details !!" });
+            }
+        } else {
 
 
-    const problem = req.body.blank;
-    
-    
-    ///console.log(req.body);
-    
-    
-    const posts = await Post.find({ptype:problem});
-    
-    
-    
-    
-        
-    
-    
-        app.use(express.static("../frontend"));
-        res.render(path.join(__dirname, "../frontend", "/feed"),{posts:posts});
+            // if user email is not exist 
+           return res.render(path.join(__dirname, "../frontend", "/user-signup"));
+
+        }
+    } catch (error) {
+       return res.status(400).json({ error });
+    }
+
+    //end
+
+
+   
     });
     
 
@@ -306,9 +332,10 @@ app.post("/loginuser",async function (req, res) {
                 const patient = new Patient({ name: name, email: email, password: password, contact: contact });
     
     
-                patient.save().then(() => {
+                patient.save().then(async () => {
+                    const posts = await Post.find({email:patient.email});
                     app.use(express.static("../frontend"));
-                    res.render(path.join(__dirname, "../frontend", "/user-dashboard"),{patient:patient});
+                    res.render(path.join(__dirname, "../frontend", "/user-dashboard"),{patient:patient,posts:posts});
                 }).catch((err) => res.status(500).json({ error: "failed to register !! " }));
     
     
