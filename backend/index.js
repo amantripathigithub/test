@@ -211,8 +211,27 @@ app.get("/cat-contributor", (req, res) => {
 });
 
 app.get("/user", (req, res) => {
+
+
+
+
+
+
     app.use(express.static("../frontend"));
     res.render(path.join(__dirname, "../frontend", "/user"));
+});
+
+
+app.post("/feed", (req, res) => {
+
+
+const problem = req.body.blank;
+
+
+    
+
+    app.use(express.static("../frontend"));
+    res.render(path.join(__dirname, "../frontend", "/feed"),{problem:problem});
 });
 
 
