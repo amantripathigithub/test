@@ -6,7 +6,9 @@ let post = new Schema({
     email: {
       type: String
     },
-    
+    ptype:{
+        type: String
+    },
     name: {
       type: String 
     },

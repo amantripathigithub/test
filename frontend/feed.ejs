@@ -166,65 +166,37 @@
     </style>
     <div class="main-container">
         <div class="container">
-            <div class="left-sidebar">
-                <div class="contributor-profile">
-                    <img src="images/user.png" alt="user image" class="contributor-img">
-                    <label class="contributor-name">Yogesh Kumar</label>
-                </div>
-                <div class="menu-list">
-                    <ul class="list">
-                        <li class="list-items">My Dashboard</li>
-                        <li class="list-items">Account</li>
-                        <li class="list-items">Chats</li>
-                        <li class="list-items">Donation</li>
-                        <li class="list-items">Support</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="main">
-                <div class="header">
-                    <div class="greeting">
-                        <h2 class="welcome-text">project name</h2>
-                        <p class="welcome">hello user.name and welcome to project.nanme</p>
-                    </div>
-                </div>
-                <div class="problem-feed">
-                    <form action="/solution" method="post">
-                        <input type="hidden" value="I have a bug in my Code" name="blank" />
-                        <div class="problem">
-                            <h2 class="problem-title">I have a bug in my Code</h2>
-                            <span class="problem-admin">yogesh Kumar</span>
-                            <span class="issolved">Solved</span>
-                            <input type="submit" class="button" value="Solution">
-                        </div>
-                    </form>
-                    <form action="/solution" method="post">
-                        <input type="hidden" value="I have a bug in my Code" name="blank" />
-                        <div class="problem">
-                            <h2 class="problem-title">I have a bug in my Code</h2>
-                            <span class="problem-admin">yogesh Kumar</span>
-                            <span class="issolved">Solved</span>
-                            <input type="submit" class="button" value="Solution">
+            <div class="problem-feed">
+                <% if(posts!=null) { %>
+                <% posts.forEach(function(posts){ %>
+           
+                <form action="/solution" method="post">
+                    <input type="hidden" value=<%= posts.name%> name="blank"/>
+                <div class="problem">
+                    <h2 class="problem-title"><%= posts.problem%></h2>
+                    <span class="problem-admin"><%= posts.name%></span>
+                    <% if(posts.solved === 1) { %>
+                    <span class="issolved">solved</span>
+                    <% } %>
 
-                        </div>
-                    </form>
-                    <form action="/solution" method="post">
-                        <input type="hidden" value="I have a bug in my Code" name="blank" />
-                        <div class="problem">
-                            <h2 class="problem-title">I have a bug in my Code</h2>
-                            <span class="problem-admin">yogesh Kumar</span>
-                            <span class="issolved">Solved</span>
-                            <input type="submit" class="button" value="Solution">
-                        </div>
-                    </form>
+                    <% if(posts.solved === 0) { %>
+                        <span class="issolved">unsolved</span>
+                        <% } %>
+
+                    <input type="submit" class="submit" value="Solution" >
+
                 </div>
+            </form>
+            <% }) %>
+            <% } %>
+               
             </div>
         </div>
     </div>
-    <script>
+<script>
 
 
-    </script>
+</script>
 
 </body>
 
