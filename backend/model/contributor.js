@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-let hotel = new Schema({
+let contributor = new Schema({
     email: {
       type: String
     },
@@ -12,27 +12,19 @@ let hotel = new Schema({
     name: {
       type: String 
     },
-    price: {
-        type: Number
-    },
-    city: {
-        type: String
-    },
-    address: {
-        type: String
-    },
+   
     contact: {
         type: Number
     },
     rating:{
       type: Number
     },
-    image:{
+    category:{
       type: String
     }
   });
 
-  const hotel_model = mongoose.model("hotels", hotel);
+  const contributor_model = mongoose.model("contributors", contributor);
 
-  module.exports = hotel_model;
+  module.exports = contributor_model;
   
