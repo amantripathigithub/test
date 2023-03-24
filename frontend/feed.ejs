@@ -59,7 +59,6 @@
             position: absolute;
             top: 0;
             left: 20%;
-            padding: 10px;
         }
 
 
@@ -91,8 +90,10 @@
             justify-content: space-between;
             flex-wrap: nowrap;
             align-items: center;
-
             /* padding: 0 2%; */
+            background: #3333;
+            margin: 0 0 20px 0;
+            padding: 0 40px;
         }
 
         .avtar.avatar-online {
@@ -126,6 +127,9 @@
         .problem-feed {
             padding: 20px;
             width: 60%;
+            max-height: 70vh;
+            overflow: auto;
+            margin: 0 20px 0 0;
         }
 
         .problem {
@@ -182,36 +186,41 @@
             width: 80%;
             margin: 0 auto;
         }
+
         .feed-container {
-    display: flex;
+            display: flex;
 
-}
+        }
 
-.post-form {
-    float: right;
-    padding: 20px;
-    width: 35%;
-    height: 30%;
-    background: #d9c6c6;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-}
-input.problem-cat {
-    display: block;
-    padding: 10px;
-    margin: 0 0 10px 0;
-    width: 100%;
-}
+        .post-form {
+            float: right;
+            padding: 20px;
+            width: 40%;
+            height: 30%;
+            background: #d9c6c6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            margin: 0 20px 0 0;
+        }
 
-.post-form-container {
-    width: 100%;
-}
+        input.problem-cat {
+            display: block;
+            padding: 10px;
+            margin: 0 0 10px 0;
+            width: 100%;
+            font-size: 20px;
+        }
 
-textarea.problem-write {
-    width: 100%;
-}
+        .post-form-container {
+            width: 100%;
+        }
+
+        textarea.problem-write {
+            width: 100%;
+            font-size: 20px;
+        }
     </style>
     <div class="main-container">
         <div class="container">
@@ -246,10 +255,10 @@ textarea.problem-write {
                     <div class="problem-feed">
                         <% if(posts!=null) { %>
                             <% posts.forEach(function(posts){ %>
-    
+
                                 <form action="/solution" method="post">
-                                    <input type="hidden" value="<%=posts.solutions%>," name="blank"/>
-                                    <input type="hidden" value="<%=posts.problem%>," name="blank2"/>
+                                    <input type="hidden" value="<%=posts.solutions%>," name="blank" />
+                                    <input type="hidden" value="<%=posts.problem%>," name="blank2" />
                                     <div class="problem">
                                         <h2 class="problem-title">
                                             <%= posts.problem%>
@@ -263,26 +272,26 @@ textarea.problem-write {
                                                     <i class="fa-solid fa-file-check"></i> <span
                                                         class="issolved">solved</span>
                                                 </div>
-    
+
                                                 <% } %>
-    
+
                                                     <% if(posts.solved===0) { %>
                                                         <div class="un-verifyed-ans">
                                                             <i class="fa-solid fa-x"></i> <span
                                                                 class="issolved">unsolved</span>
                                                         </div>
                                                         <% } %>
-    
+
                                         </div>
                                         <div class="btn">
                                             <input type="submit" class="button" value="Solution">
                                         </div>
-    
+
                                     </div>
                                 </form>
                                 <% }) %>
                                     <% } %>
-    
+
                     </div>
                     <div class="post-form">
                         <div class="post-form-container">
@@ -290,12 +299,14 @@ textarea.problem-write {
                             <form action="">
                                 <div class="problem-category">
                                     <label class="problem-cat-text">Your Problem Category</label>
-                                    <input type="text" value="Category dalo" class="problem-cat" name="problem-category" readonly>
+                                    <input type="text" value="Category dalo" class="problem-cat" name="problem-category"
+                                        readonly>
                                 </div>
                                 <div class="problem-container">
                                     <label> Describe your problem</label>
-                                    <textarea class="problem-write" name="problem"rows="4" cols="25" required></textarea>
-                                
+                                    <textarea class="problem-write" name="problem" rows="9" cols="25"
+                                        required></textarea>
+
                                 </div>
                                 <div class="post-btn">
                                     <input type="submit" class="button" value="Post Your Problem">
