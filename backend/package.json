@@ -17,6 +17,7 @@
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.2",
     "nodemon": "^2.0.22",
+    "textmagic-rest-client": "^1.0.11",
     "twilio": "^3.80.1"
   }
 }
