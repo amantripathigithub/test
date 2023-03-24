@@ -222,6 +222,108 @@ app.get("/user", (req, res) => {
 });
 
 
+app.get("/user-login", (req, res) => {
+
+
+
+
+
+
+    app.use(express.static("../frontend"));
+    res.render(path.join(__dirname, "../frontend", "/user-login"));
+});
+
+
+app.get("/user-signup", (req, res) => {
+
+
+
+
+
+
+    app.use(express.static("../frontend"));
+    res.render(path.join(__dirname, "../frontend", "/user-signup"));
+});
+
+
+
+
+app.post("/loginuser",async function (req, res) {
+
+    
+
+
+    const problem = req.body.blank;
+    
+    
+    ///console.log(req.body);
+    
+    
+    const posts = await Post.find({ptype:problem});
+    
+    
+    
+    
+        
+    
+    
+        app.use(express.static("../frontend"));
+        res.render(path.join(__dirname, "../frontend", "/feed"),{posts:posts});
+    });
+    
+
+
+
+    app.post("/signupuser",async function (req, res) {
+
+        const email = req.body.email;
+        const password = req.body.password;
+        const cpassword = req.body.confirmpassword;
+        const name = req.body.name;
+        const contact = req.body.phone;
+        
+    
+        if (!email || !password || !cpassword) {
+    
+            return res.json({ error: "fill properly!!" });
+    
+        }
+        if (password != cpassword) {
+    
+            return res.json({ error: "password not match!!" });
+        }
+    
+    
+        con = String(contact);
+        if (con.length != 10)
+            return res.json({ error: "not a valid number" });
+    
+        Patient.findOne({ email: email, password: password })
+            .then(async (userExist) => {
+                if (userExist)
+                    return res.status(422).json({ error: "email exists already" });
+    
+                const patient = new Patient({ name: name, email: email, password: password, contact: contact });
+    
+    
+                patient.save().then(() => {
+                    app.use(express.static("../frontend"));
+                    res.render(path.join(__dirname, "../frontend", "/user-dashboard"),{patient:patient});
+                }).catch((err) => res.status(500).json({ error: "failed to register !! " }));
+    
+    
+            }).catch(err => { console.log(err); });
+    
+        //console.log(req.body);
+        //res.json({message:req.body});
+
+    });
+        
+
+
+
+
+
 app.post("/feed",async function (req, res) {
 
     
