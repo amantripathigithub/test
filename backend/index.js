@@ -48,7 +48,7 @@ const Contributor = require('./model/contributor');
 // for hotel schema
 const Patient = require('./model/patient');
 
-
+const Post = require('./model/post');
 
 // for twilio
 //app.use(jsonParser);
@@ -222,26 +222,33 @@ app.get("/user", (req, res) => {
 });
 
 
-app.post("/feed", (req, res) => {
+app.post("/feed",async function (req, res) {
+
+    
 
 
 const problem = req.body.blank;
 
-//console.log(req.body);
+console.log(req.body);
+
+
+const posts = await Post.find({ptype:problem});
 
 
 
     
 
     app.use(express.static("../frontend"));
-    res.render(path.join(__dirname, "../frontend", "/feed"),{problem:problem});
+    res.render(path.join(__dirname, "../frontend", "/feed"),{posts:posts});
 });
 
 
 app.post("/solution", (req, res) => {
 
 
+
     const problem = req.body.blank;
+
     
     
         //console.log(req.body);
