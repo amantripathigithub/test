@@ -238,23 +238,25 @@ const posts = await Post.find({ptype:problem});
 
     
 
+
     app.use(express.static("../frontend"));
     res.render(path.join(__dirname, "../frontend", "/feed"),{posts:posts});
 });
+
 
 
 app.post("/solution", (req, res) => {
 
 
 
-    const problem = req.body.blank;
-
+    const sol = req.body.blank;
+    let arr = sol.split(',');
     
     
         //console.log(req.body);
     
         app.use(express.static("../frontend"));
-        res.render(path.join(__dirname, "../frontend", "/solution"),{problem:problem});
+        res.render(path.join(__dirname, "../frontend", "/solution"),{sol:arr});
     });
     
     

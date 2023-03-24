@@ -22,10 +22,9 @@ let post = new Schema({
     },
     
     solutions:[{
-      solution:{
+     
         type:String
-        
-      }
+      
     }]
   });
 
