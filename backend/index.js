@@ -210,6 +210,11 @@ app.get("/cat-contributor", (req, res) => {
     res.render(path.join(__dirname, "../frontend", "/contributor-category"));
 });
 
+app.get("/user", (req, res) => {
+    app.use(express.static("../frontend"));
+    res.render(path.join(__dirname, "../frontend", "/user"));
+});
+
 
 app.post("/contributor-home",function(req,res){
     const email = req.body.email;
