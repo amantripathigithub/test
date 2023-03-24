@@ -15,7 +15,8 @@
             <div class="questions">
                 <div class="questions-container">
                     <strong>What led you to consider therapy today?</strong>
-                    <form action="">
+                    <form action="/feed" method="post">
+                        <input type="hidden" value="" name="blank"/>
                         <div class="question">
                             <input type="radio" id="question-1" name="question" value="">
                               <label for="question-1">I've been feeling depressed</label><br>
@@ -32,7 +33,7 @@
                             <input type="radio" id="question-4" name="question" value="">
                               <label for="question-4">I struggle with building or maintaining relationships</label><br>
                         </div>
-                        <div class="question">
+                        <!-- <div class="question">
                             <input type="radio" id="question-5" name="question" value="">
                               <label for="question-5">I can't find purpose and meaning in my life</label><br>
                         </div>
@@ -68,9 +69,9 @@
                         <div class="question">
                             <input type="radio" id="question-13" name="question" value="">
                               <label for="question-13">Other</label><br>
-                        </div>
+                        </div> -->
 
-                        <input class="button" type="submit" value="Next" name="submit" />
+                        <input class="button" type="submit" value="Next" name="submit" onclick="next()"/>
                     </form>
                 </div>
             </div>
@@ -95,6 +96,21 @@
             margin: 25px 0;
         }
     </style>
+
+<script>
+    function next(){
+     let checkbox=document.getElementsByName("question");
+     let val="";
+     for(let i=0;i<checkbox.length;i++){
+        if(checkbox[i].checked===true)
+        document.getElementById("blank").value=val;
+     }
+     
+
+    // console.log(val); 
+    }
+   </script>
+
 </body>
 
 </html>
