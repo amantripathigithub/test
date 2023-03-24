@@ -185,6 +185,21 @@
             width: 80%;
             margin: 0 auto;
         }
+
+        input.solved {
+            border-radius: 20px;
+            border: 1px solid #FF4B2B;
+            background-color: #7ce495;
+            color: #252525;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 6px 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: transform 80ms ease-in;
+            cursor: pointer;
+            margin: 0 20px 0 0;
+        }
     </style>
     <div class="main-container">
         <div class="container">
@@ -248,6 +263,7 @@
 
                                         </div>
                                         <div class="btn">
+                                            <input type="submit" class="solved" value="Solved">
                                             <input type="submit" class="button" value="Solution">
                                         </div>
 
