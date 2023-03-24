@@ -17,7 +17,7 @@
     position: absolute;
     height: 100vh;
     background: #eee;
-    padding: 1% 10px;
+    /* padding: 1% 10px; */
 }
 
 .contributor-profile {text-align: center;margin: 20px 0;display: flex;flex-direction: column;align-items: center;font-weight: 700;font-size: 26px;}
@@ -36,8 +36,12 @@ li.list-items {
     padding: 20px;
     font-size: 20px;
     font-weight: 500;
-}
+    cursor: pointer;
 
+}
+li.list-items:hover {
+    background: #02a79a;
+}
 .main {
     width: 80%;
     background: #2222;
@@ -109,3 +113,4 @@ img.contributor-avtar {
     box-shadow: 0 0 0 2px #fff;
     background: #71dd37;
 }
+

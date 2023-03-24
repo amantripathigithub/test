@@ -1,51 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feed</title>
+    <link rel="stylesheet" href="style/style-main.css">
 </head>
+
 <body>
+    <style>
+        .container {
+            /* margin: 0 4%; */
+            /* display: flex; */
+        }
+
+        .main-container {
+            /* display: flex; */
+            /* flex-wrap: nowrap; */
+            /* flex-direction: row; */
+        }
+
+        .left-sidebar {
+            width: 20%;
+            float: left;
+            left: 0;
+            top: 0;
+            position: absolute;
+            height: 100vh;
+            background: #eee;
+            /* padding: 1% 10px; */
+        }
+
+        .contributor-profile {
+            text-align: center;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-weight: 700;
+            font-size: 26px;
+        }
+
+        .contributor-img {
+            max-width: 180px;
+            margin: 10px;
+        }
+
+        ul.list {
+            margin: 0;
+            padding: 0;
+        }
+
+        li.list-items {
+            padding: 20px;
+            font-size: 20px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        li.list-items:hover {
+    background: #02a79a;
+}
+
+        .main {
+            width: 80%;
+            background: #2222;
+            position: absolute;
+            top: 0;
+            left: 20%;
+            height: 100vh;
+            padding: 10px;
+        }
+
+        .greeting {}
+
+        .user-requests {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            align-content: center;
+        }
+
+        .user-image {}
+
+        img.user-img {
+            max-width: 80px;
+        }
+
+        .users {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #eee;
+            width: 25%;
+        }
+
+        .header {
+            display: flex;
+            max-width: 100%;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+            align-content: center;
+            /* padding: 0 2%; */
+        }
+
+        .avtar.avatar-online {
+            /* width: 50px; */
+            text-align: center;
+            position: relative;
+        }
+
+        ul.dropdown-menu.dropdown-menu-end.show {
+            padding: 0;
+            margin: 0;
+            visibility: hidden;
+        }
+
+        img.contributor-avtar {
+            width: 30px;
+        }
+
+        .avtar.avatar-online:after {
+            content: "";
+            position: absolute;
+            bottom: 4px;
+            right: 28px;
+            width: 10px;
+            height: 10px;
+            border-radius: 100%;
+            box-shadow: 0 0 0 2px #fff;
+            background: #71dd37;
+        }
+
+        .problem-feed {
+            display: flex;
+            width: 100%;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+
+        .problem {
+            border: 1px solid #eee;
+            padding: 20px;
+            border-radius: 20px;
+            margin: 10px;
+        }
+
+        h2.problem-title {
+            font-weight: 600;
+        }
+
+        span.problem-admin {
+            float: left;
+            width: 50%;
+        }
+
+        span.issolved {
+            width: 50%;
+            float: right;
+            text-align: right;
+        }
+    </style>
     <div class="main-container">
         <div class="container">
-            <div class="problem-feed">
-                <form action="/solution" method="post">
-                    <input type="hidden" value="I have a bug in my Code" name="blank"/>
-                    <div class="problem">
-                        <h2 class="problem-title">I have a bug in my Code</h2>
-                        <span class="problem-admin">yogesh Kumar</span>
-                        <span class="issolved">Solved</span>
-                        <input type="submit" class="submit" value="Solution" >
-                    </div>
-                </form>
-                <form action="/solution" method="post">
-                    <input type="hidden" value="I have a bug in my Code" name="blank"/>
-                <div class="problem">
-                    <h2 class="problem-title">I have a bug in my Code</h2>
-                    <span class="problem-admin">yogesh Kumar</span>
-                    <span class="issolved">Solved</span>
-                    <input type="submit" class="submit" value="Solution" >
-
+            <div class="left-sidebar">
+                <div class="contributor-profile">
+                    <img src="images/user.png" alt="user image" class="contributor-img">
+                    <label class="contributor-name">Yogesh Kumar</label>
                 </div>
-            </form>
-                <form action="/solution" method="post">
-                    <input type="hidden" value="I have a bug in my Code" name="blank"/>
-                    <div class="problem">
-                        <h2 class="problem-title">I have a bug in my Code</h2>
-                        <span class="problem-admin">yogesh Kumar</span>
-                        <span class="issolved">Solved</span>
-                        <input type="submit" class="submit" value="Solution" >
+                <div class="menu-list">
+                    <ul class="list">
+                        <li class="list-items">My Dashboard</li>
+                        <li class="list-items">Account</li>
+                        <li class="list-items">Chats</li>
+                        <li class="list-items">Donation</li>
+                        <li class="list-items">Support</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="main">
+                <div class="header">
+                    <div class="greeting">
+                        <h2 class="welcome-text">project name</h2>
+                        <p class="welcome">hello user.name and welcome to project.nanme</p>
                     </div>
-                </form>
+                </div>
+                <div class="problem-feed">
+                    <form action="/solution" method="post">
+                        <input type="hidden" value="I have a bug in my Code" name="blank" />
+                        <div class="problem">
+                            <h2 class="problem-title">I have a bug in my Code</h2>
+                            <span class="problem-admin">yogesh Kumar</span>
+                            <span class="issolved">Solved</span>
+                            <input type="submit" class="button" value="Solution">
+                        </div>
+                    </form>
+                    <form action="/solution" method="post">
+                        <input type="hidden" value="I have a bug in my Code" name="blank" />
+                        <div class="problem">
+                            <h2 class="problem-title">I have a bug in my Code</h2>
+                            <span class="problem-admin">yogesh Kumar</span>
+                            <span class="issolved">Solved</span>
+                            <input type="submit" class="button" value="Solution">
+
+                        </div>
+                    </form>
+                    <form action="/solution" method="post">
+                        <input type="hidden" value="I have a bug in my Code" name="blank" />
+                        <div class="problem">
+                            <h2 class="problem-title">I have a bug in my Code</h2>
+                            <span class="problem-admin">yogesh Kumar</span>
+                            <span class="issolved">Solved</span>
+                            <input type="submit" class="button" value="Solution">
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-<script>
+    <script>
 
 
-</script>
-
+    </script>
 
 </body>
+
 </html>
