@@ -250,8 +250,9 @@ app.post("/solution", (req, res) => {
 
 
     const sol = req.body.blank;
-    let arr = sol.split(',');
     
+    let arr = sol.split('@,');
+    console.log(arr);
     
         //console.log(req.body);
     
